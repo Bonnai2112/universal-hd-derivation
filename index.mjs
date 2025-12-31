@@ -7,10 +7,11 @@ import { generateMnemonic, mnemonicToSeed } from "@scure/bip39";
 import { wordlist } from "@scure/bip39/wordlists/english.js";
 
 // 1. Master seed
+const SEGWIT_VERSIONS = { private: 0x04B2430C, public: 0x04B24746 };  // segwit seed generation
 const mnemonic = generateMnemonic(wordlist);
 const seed = await mnemonicToSeed(mnemonic);
 console.log("Master seed:", mnemonic);
-const rootKey = HDKey.fromMasterSeed(seed);
+const rootKey = HDKey.fromMasterSeed(seed, SEGWIT_VERSIONS);
 
 // 2. Bitcoin
 const btcPath = "m/84'/0'/0'/0/0";
