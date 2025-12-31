@@ -36,5 +36,5 @@ console.log("Ethereum address:", ethAddress);
 // 4. Solana
 const solPath = "m/44'/501'/0'/0'";
 const opSolHD = HDKey.fromMasterSeed(seed).derive(solPath);
-const solKeypair = Keypair.fromSeed(opSolHD.privateKey);
-console.log("Solana address:", solKeypair.publicKey.toBase58());
+const opSolKeypair = Keypair.fromSeed(opSolHD.privateKey);
+console.log("Solana address:", opSolKeypair.publicKey.toBase58());
